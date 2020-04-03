@@ -1,12 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Ad from 'react-google-publisher-tag'
+import Cookies from 'universal-cookie';
 
 
 import './styles.css'
 
 export default function Home() {
 
+    const installGoogleAds = () => {
+        const head = document.querySelector("head")
+        const script = document.createElement("script")
 
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        script.async = true
+        script.setAttribute("data-ad-client", "ca-pub-9656826245200965")
+
+        head.appendChild(script)
+    }
+
+    const setCookies = () => {
+        const cookies = new Cookies();
+        cookies.set('cross-site', 'name', { path: '/' });
+        cookies.set('SameSite', 'None', { path: '/' });
+        console.log(cookies)
+    }
+
+    useEffect(() => {
+        installGoogleAds()
+        setCookies()
+    }, []);
+
+
+    
 
     const [kms, setKms] = useState('')
     const [horas, setHoras] = useState('')
