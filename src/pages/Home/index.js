@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Ad from 'react-google-publisher-tag'
 import Cookies from 'universal-cookie';
+import AdSense from 'react-adsense';
 
 
 import './styles.css'
@@ -31,7 +32,7 @@ export default function Home() {
     }, []);
 
 
-    
+
 
     const [kms, setKms] = useState('')
     const [horas, setHoras] = useState('')
@@ -50,24 +51,24 @@ export default function Home() {
     }
     function segundosParaTempo(totalSegundos) {
         let horas, minutos, segundos, resto
-        console.log('segundosParaTempo(totalSegundos)', totalSegundos)
+
         if (totalSegundos < 60) {
             horas = 0
             minutos = 0
             segundos = totalSegundos
-            console.log('<60')
+
 
         } else if (totalSegundos < 60 * 60) {
             minutos = parseInt(totalSegundos / 60)
             segundos = totalSegundos - (minutos * 60)
             horas = 0
-            console.log('<60*60')
+
         } else {
             horas = parseInt(totalSegundos / (60 * 60))
             resto = totalSegundos - (horas * 60 * 60)
             minutos = parseInt(resto / 60)
             segundos = resto - (minutos * 60)
-            console.log('else')
+
         }
 
         return { horas, minutos, segundos }
@@ -78,10 +79,7 @@ export default function Home() {
     function calcPaceMinPerKm(dados) {
         let paceEmSegundos = tempoParaSegundos(dados) / parseFloat(dados.kms)
         let tempo = segundosParaTempo(paceEmSegundos)
-        console.log('teste', parseFloat(dados.kms))
-        console.log('dados', tempoParaSegundos(dados))
-        console.log('tempo em segundos', paceEmSegundos)
-        console.log('segundos para tempo', tempo)
+
         return (`${tempo.minutos.toFixed(0)}:${tempo.segundos.toFixed(0)}/Minutos por Kilometro`)
     }
 
@@ -152,9 +150,18 @@ export default function Home() {
 
                 <div className="content">
 
-                    
 
-                    <Ad path="/ca-pub-9656826245200965/7704093721" />
+
+                    {/* <Ad path="/ca-pub-9656826245200965/7704093721" /> */}
+                    <AdSense.Google
+                        client='ca-pub-9656826245200965'
+                        slot='7704093721'
+                        style={{ display: 'block' }}
+                        format='auto'
+                        responsive='true'
+                        layoutKey='-gw-1+2a-9x+5c'
+                    />
+
                     {/* <section className="form">
                         <form onSubmit={handleCalcPace}>
                             <h1>
@@ -202,7 +209,16 @@ export default function Home() {
 
             </div>
             <div className="ads">
-                <Ad path="/ca-pub-9656826245200965/5453334906" />
+                {/* <Ad path="/ca-pub-9656826245200965/5453334906" /> */}
+                <AdSense.Google
+                    client='ca-pub-9656826245200965'
+                    slot='5453334906'
+                    style={{ display: 'block' }}
+                    format='auto'
+                    responsive='true'
+                    layoutKey='-gw-1+2a-9x+5c'
+                />
+
             </div>
         </div>
 
