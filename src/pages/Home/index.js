@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AdSense from 'react-adsense';
+import Ad from 'react-google-publisher-tag'
 
 
 import './styles.css'
@@ -13,18 +13,6 @@ export default function Home() {
     const [minutos, setMinutos] = useState('')
     const [segundos, setSegundos] = useState('')
     const [pace, setPace] = useState('')
-
-
-
-    const head = document.querySelector("head")
-    const script = document.createElement("script")
-
-    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    script.async = true
-    script.setAttribute("data-ad-client", "ca-pub-9656826245200965")
-
-    head.appendChild(script);
-
 
 
     function tempoParaSegundos(dados) {
@@ -139,16 +127,9 @@ export default function Home() {
 
                 <div className="content">
 
-                    <AdSense.Google
-                        client='ca-pub-9656826245200965'
-                        slot='7704093721'
-                        style={{ display: 'block' }}
-                        format='auto'
-                        responsive='true'
-                        layoutKey='-gw-1+2a-9x+5c'
-                    />
+                    
 
-
+                    <Ad path="/ca-pub-9656826245200965/7704093721" />
                     {/* <section className="form">
                         <form onSubmit={handleCalcPace}>
                             <h1>
@@ -196,15 +177,7 @@ export default function Home() {
 
             </div>
             <div className="ads">
-                <AdSense.Google
-                    client='ca-pub-9656826245200965'
-                    slot='5453334906'
-                    style={{ display: 'block' }}
-                    format='auto'
-                    responsive='true'
-                    layoutKey='-gw-1+2a-9x+5c'
-
-                />
+                <Ad path="/ca-pub-9656826245200965/5453334906" />
             </div>
         </div>
 
