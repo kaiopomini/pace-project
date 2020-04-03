@@ -213,7 +213,7 @@ export default function Home() {
                     client='ca-pub-9656826245200965'
                     slot='5453334906'
                     
-                    style={{ width: 728, height: 90, float: 'left' }}
+                    style={{ width: 728, height: 90, display: 'inline-block' }}
                     format=''
                 />
 
