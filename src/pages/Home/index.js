@@ -139,11 +139,12 @@ export default function Home() {
 
                 <div className="content">
 
-                    {/* <AdSense.Google
+                    <AdSense.Google
                         client='ca-pub-9656826245200965'
                         slot='7806394673'
-                        
-                    /> */}
+                        style={{ width: 320, height: 200, float: 'left' }}
+
+                    />
 
 
                     {/* <section className="form">
@@ -193,7 +194,12 @@ export default function Home() {
 
             </div>
             <div className="ads">
-                
+                <AdSense.Google
+                    client='ca-pub-9656826245200965'
+                    slot='7806394673'
+                    style={{ width: 720, float: 'left' }}
+
+                />
             </div>
         </div>
 

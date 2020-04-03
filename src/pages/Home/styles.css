@@ -81,6 +81,7 @@
 .home-container {
     width: 100%;
     max-width: 800px;
+    min-width: 700px;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -90,6 +91,7 @@
 
 .home-container .content {
     width: 100%;
+    min-width: 320px;
     padding: 20px;
     background: #f0f0f5;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
@@ -177,7 +179,7 @@
     
     max-width: 760px;
     height: 150px;
-    padding-top: 35px;
+    padding-top: 150px;
     background: #f0f0f5;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
