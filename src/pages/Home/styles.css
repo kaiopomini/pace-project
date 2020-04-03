@@ -1,0 +1,148 @@
+/* body {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: lightgray;
+} */
+
+.cabecalho {
+    background: #222;
+    border-bottom: lightskyblue;
+    height: 80px;
+    box-sizing: content-box;
+}
+
+
+
+.menu-toggle {
+    float: right;
+    color: #eee;
+    background-color: #555;
+    border: solid 1px #777;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px 20px;
+    margin: 20px 15px;
+
+}
+
+.menu {
+    display: inline-block;
+    vertical-align: top;
+    height: 80px;
+    padding: 25px;
+    
+    
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.cabecalho a {
+    text-decoration: none;
+    color: #eee;
+    font-size: 1.3em;
+}
+
+.menu a {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.autenticacao {
+    float: right;
+    height: 80px;
+    padding: 25px;
+}
+
+.menu a:hover,
+.menu a.selected {
+    background-color: lightskyblue;
+    color: #000;
+}
+.botao {
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin: 10px;
+}
+.destaque {
+    background: #f50a31;
+    color: #fff;
+}
+
+
+
+.home-container {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-container .content {
+    width: 100%;
+    padding: 20px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.result {
+    max-width: 760px;
+    height: 80px;
+    padding: 80px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.result p {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.home-container .content section h1 {
+    margin: 20px 0 32px;
+    font-size: 32px;
+}
+
+.home-container .content section p {
+    font: 400 18px Roboto, sans-serif;
+    margin: 5px;
+}
+
+.home-container .content form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.home-container .content form input {
+    margin-top: 8px;
+    
+}
+
+
+.home-container .content form .tempo {
+    display: flex;
+
+}
+.home-container .content form .tempo input + input {
+    margin-left: 8px;
+}
