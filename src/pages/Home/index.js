@@ -16,8 +16,15 @@ export default function Home() {
 
 
 
+    const head = document.querySelector("head")
+    const script = document.createElement("script")
 
-
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    script.async = true
+    script.setAttribute("data-ad-client","ca-pub-9656826245200965")
+    
+    head.appendChild(script);
+    
 
 
     function tempoParaSegundos(dados) {
@@ -102,7 +109,7 @@ export default function Home() {
                 <div className="content">
                     <section className="form">
                         <form onSubmit={handleCalcPace}>
-                            <h1>Calculadoda de PACE (Min/KM)</h1>
+                            <h1>Calculadora de PACE (Min/KM)</h1>
                             <p>Distância Percorrida (KM)</p>
                             <input placeholder="KMs" value={kms}
                                 onChange={e => setKms(e.target.value)} />
@@ -174,8 +181,8 @@ export default function Home() {
             <div className="result">
                 <p className="resultado">{pace}</p>
             </div>
-            <script data-ad-client="ca-pub-9656826245200965" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        </div>
+            
+            </div>
 
     )
 }
