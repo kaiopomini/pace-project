@@ -1,15 +1,24 @@
 import React, { useState } from 'react'
 import AdSense from 'react-adsense';
 
+
 import './styles.css'
 
 export default function Home() {
+
+
 
     const [kms, setKms] = useState('')
     const [horas, setHoras] = useState('')
     const [minutos, setMinutos] = useState('')
     const [segundos, setSegundos] = useState('')
     const [pace, setPace] = useState('')
+
+
+
+
+
+
 
     function tempoParaSegundos(dados) {
         let horas = dados.horas * 60 * 60
@@ -92,24 +101,24 @@ export default function Home() {
             <div className="home-container">
                 <div className="content">
                     <section className="form">
-                    <form onSubmit={handleCalcPace}>
+                        <form onSubmit={handleCalcPace}>
                             <h1>Calculadoda de PACE (Min/KM)</h1>
                             <p>Distância Percorrida (KM)</p>
-                        <input placeholder="KMs" value={kms}
-                                    onChange={e => setKms(e.target.value)} />
-                     
+                            <input placeholder="KMs" value={kms}
+                                onChange={e => setKms(e.target.value)} />
+
                             <p>Informe o tempo:</p>
                             <div className="tempo">
-                                
-                                    <input type="number" placeholder="HRs" min="0" value={horas}
-                                        onChange={e => setHoras(e.target.value)} />
 
-                                    <input type="number" placeholder="Min" min="0" max="59" value={minutos}
-                                        onChange={e => setMinutos(e.target.value)} />
+                                <input type="number" placeholder="HRs" min="0" value={horas}
+                                    onChange={e => setHoras(e.target.value)} />
 
-                                    <input type="number" placeholder="Sec" min="0" max="59" value={segundos}
-                                        onChange={e => setSegundos(e.target.value)} />
-                                
+                                <input type="number" placeholder="Min" min="0" max="59" value={minutos}
+                                    onChange={e => setMinutos(e.target.value)} />
+
+                                <input type="number" placeholder="Sec" min="0" max="59" value={segundos}
+                                    onChange={e => setSegundos(e.target.value)} />
+
                             </div>
 
 
@@ -121,8 +130,15 @@ export default function Home() {
                     </section>
                 </div>
 
-                {/* <div className="content">
-                    <section className="form">
+                <div className="content">
+
+                    {/* <AdSense.Google
+                        client='ca-pub-7292810486004926'
+                        slot='7806394673'
+                    /> */}
+
+
+                    {/* <section className="form">
                         <form onSubmit={handleCalcPace}>
                             <h1>
                                 informe os dados de sua corrida
@@ -149,15 +165,17 @@ export default function Home() {
                             <button className="button" type="submit">Calcular</button>
                         </form>
 
-                    </section>
+                    </section> */}
 
 
-                </div> */}
+                </div>
 
             </div>
             <div className="result">
                 <p className="resultado">{pace}</p>
             </div>
+            <script data-ad-client="ca-pub-9656826245200965" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </div>
+
     )
 }
