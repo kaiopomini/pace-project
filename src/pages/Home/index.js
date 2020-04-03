@@ -141,9 +141,11 @@ export default function Home() {
 
                     <AdSense.Google
                         client='ca-pub-9656826245200965'
-                        slot='7806394673'
-                        style={{ width: 320, height: 200, float: 'left' }}
-
+                        slot='7704093721'
+                        style={{ display: 'block' }}
+                        format='auto'
+                        responsive='true'
+                        layoutKey='-gw-1+2a-9x+5c'
                     />
 
 
@@ -196,8 +198,11 @@ export default function Home() {
             <div className="ads">
                 <AdSense.Google
                     client='ca-pub-9656826245200965'
-                    slot='7806394673'
-                    style={{ width: 720, float: 'left' }}
+                    slot='5453334906'
+                    style={{ display: 'block' }}
+                    format='auto'
+                    responsive='true'
+                    layoutKey='-gw-1+2a-9x+5c'
 
                 />
             </div>
