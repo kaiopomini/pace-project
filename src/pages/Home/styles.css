@@ -146,3 +146,45 @@
 .home-container .content form .tempo input + input {
     margin-left: 8px;
 }
+
+.content-info {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    align-items: flex-start;
+    justify-content: center;
+}
+.content-info h1 {
+    font-size: 32px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.content-info p {
+    font: 400 14px Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: justify;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.content-info h2 {
+    font-size: 28px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.ads {
+    
+    max-width: 760px;
+    height: 150px;
+    padding-top: 35px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+        
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}

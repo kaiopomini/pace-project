@@ -21,10 +21,10 @@ export default function Home() {
 
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     script.async = true
-    script.setAttribute("data-ad-client","ca-pub-9656826245200965")
-    
+    script.setAttribute("data-ad-client", "ca-pub-9656826245200965")
+
     head.appendChild(script);
-    
+
 
 
     function tempoParaSegundos(dados) {
@@ -140,8 +140,9 @@ export default function Home() {
                 <div className="content">
 
                     {/* <AdSense.Google
-                        client='ca-pub-7292810486004926'
+                        client='ca-pub-9656826245200965'
                         slot='7806394673'
+                        
                     /> */}
 
 
@@ -181,8 +182,20 @@ export default function Home() {
             <div className="result">
                 <p className="resultado">{pace}</p>
             </div>
-            
+            <div className="content-info">
+                <h1>Benefícios da corrida</h1>
+                <p>Há quem acredite que a corrida é o mais democrático dos esportes por causa de sua praticidade: no geral, com um tênis e uma roupa confortável já é possível arriscar os primeiros passos. E, além de ser simples de se iniciar, a corrida ainda oferece uma série de vantagens para seus praticantes, tanto para a saúde física quanto a mental.</p>
+                <p>Correr sem preocupar-se com tempo é bom, mas para quem quer evoluir no esporte, entender seu pace é fundamental. Ele é o ritmo médio de um corredor em determinado trajeto, medido em minutos por quilômetro. Dessa forma, para calcular o pace basta dividir o tempo gasto para percorrer uma distância.</p>
+                <h2>Como saber seu desempenho?</h2>
+                <p>O desempenho na corrida pode ser aferido de acordo com a velocidade que você corre, conhecida como <strong>pace</strong>. Há várias maneiras de verificar o seu pace, uma delas é utilizando a <strong>calculadora</strong>.</p>
+                <p>Informando a distância percorrida e o tempo gasto para completar a distância você terá o valor de quanto tempo gasta para completar 1KM.</p>
+                <p>Com esse valor obtido você pode começar a obsevar a velocidade dos trechos percorridos e tentar manter esse valor, ou até mesmo melhorar suas marcas.</p>
+
             </div>
+            <div className="ads">
+                
+            </div>
+        </div>
 
     )
 }
