@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Ad from 'react-google-publisher-tag'
-import Cookies from 'universal-cookie';
+
 import AdSense from 'react-adsense';
 
 
@@ -19,16 +19,10 @@ export default function Home() {
         head.appendChild(script)
     }
 
-    const setCookies = () => {
-        const cookies = new Cookies();
-        cookies.set('cross-site', 'name', { path: '/' });
-        cookies.set('SameSite', 'None', { path: '/' });
-        console.log(cookies)
-    }
 
     useEffect(() => {
         installGoogleAds()
-        setCookies()
+
     }, []);
 
 
@@ -74,13 +68,41 @@ export default function Home() {
         return { horas, minutos, segundos }
     }
 
+    function addZero(tempo) {
+        console.log(tempo)
+        let horas, minutos, segundos
+        if (tempo.horas.toFixed(0) < 10) {
+            horas = `0${tempo.horas.toFixed(0)}`
+        } else {
+            horas = tempo.horas.toFixed(0)
+        }
+        if (tempo.minutos.toFixed(0) < 10) {
+            minutos = `0${tempo.minutos.toFixed(0)}`
+        } else {
+            minutos = tempo.minutos.toFixed(0)
+        }
+        if (tempo.segundos.toFixed(0) < 10) {
+            segundos = `0${tempo.segundos.toFixed(0)}`
+        } else {
+            segundos = tempo.segundos.toFixed(0)
+        }
+
+        return ({ horas, minutos, segundos })
+    }
+
 
 
     function calcPaceMinPerKm(dados) {
         let paceEmSegundos = tempoParaSegundos(dados) / parseFloat(dados.kms)
         let tempo = segundosParaTempo(paceEmSegundos)
+        let tempoComZeros = addZero(tempo)
+        console.log(tempoComZeros)
+        if (tempo.horas > 0) {
+            return (`${tempoComZeros.horas}h:${tempoComZeros.minutos}m:${tempoComZeros.segundos}s por Kilometro`)
 
-        return (`${tempo.minutos.toFixed(0)}:${tempo.segundos.toFixed(0)}/Minutos por Kilometro`)
+        }
+        return (`${tempoComZeros.minutos}m:${tempoComZeros.segundos}s por Kilometro`)
+
     }
 
     function handleCalcPace(e) {
@@ -89,6 +111,8 @@ export default function Home() {
         const dados = {
             kms, horas, minutos, segundos
         }
+
+
 
         setPace(calcPaceMinPerKm(dados))
 
@@ -122,7 +146,7 @@ export default function Home() {
                         <form onSubmit={handleCalcPace}>
                             <h1>Calculadora de PACE (Min/KM)</h1>
                             <p>Distância Percorrida (KM)</p>
-                            <input placeholder="KMs" value={kms}
+                            <input type="number" precision={2} autoCorrect="on" placeholder="KMs" value={kms}
                                 onChange={e => setKms(e.target.value)} />
 
                             <p>Informe o tempo:</p>
@@ -156,7 +180,7 @@ export default function Home() {
                     <AdSense.Google
                         client='ca-pub-9656826245200965'
                         slot='7704093721'
-                  
+
                         style={{ width: 300, height: 300, float: 'left' }}
                         format=''
                     />
@@ -198,13 +222,50 @@ export default function Home() {
                 <p className="resultado">{pace}</p>
             </div>
             <div className="content-info">
-                <h1>Benefícios da corrida</h1>
+                <h1>Sobre a corrida:</h1>
+
+                <p>A corrida é uma das formas mais primitivas de exercício, e pode ser praticada por qualquer pessoa saudável, sendo que pode ser realizada tanto  ao ar livre, quanto na esteira.</p>
                 <p>Há quem acredite que a corrida é o mais democrático dos esportes por causa de sua praticidade: no geral, com um tênis e uma roupa confortável já é possível arriscar os primeiros passos. E, além de ser simples de se iniciar, a corrida ainda oferece uma série de vantagens para seus praticantes, tanto para a saúde física quanto a mental.</p>
                 <p>Correr sem preocupar-se com tempo é bom, mas para quem quer evoluir no esporte, entender seu pace é fundamental. Ele é o ritmo médio de um corredor em determinado trajeto, medido em minutos por quilômetro. Dessa forma, para calcular o pace basta dividir o tempo gasto para percorrer uma distância.</p>
-                <h2>Como saber seu desempenho?</h2>
-                <p>O desempenho na corrida pode ser aferido de acordo com a velocidade que você corre, conhecida como <strong>pace</strong>. Há várias maneiras de verificar o seu pace, uma delas é utilizando a <strong>calculadora</strong>.</p>
+
+                <h2>Como saber seu desempenho:</h2>
+
+                <p>O desempenho na corrida pode ser aferido de acordo com a velocidade que você corre, conhecida como pace. Há várias maneiras de verificar o seu pace, uma delas é utilizando a calculadora.</p>
                 <p>Informando a distância percorrida e o tempo gasto para completar a distância você terá o valor de quanto tempo gasta para completar 1KM.</p>
                 <p>Com esse valor obtido você pode começar a obsevar a velocidade dos trechos percorridos e tentar manter esse valor, ou até mesmo melhorar suas marcas.</p>
+                <p>Portanto o pace nada mais é do que o ritimo de corrida, para quem busca melhorar a performance na corrida, quanto mais baixo o pace, melhor é.</p>
+
+                <h2>Benefícios da corrida:</h2>
+
+                <p>A pratica regular da corrida sem dúvida pode trazer inúmeros benefícios para sua saúde.</p>
+                <p>Contudo é recomendável antes de iniciar a pratica consultar um médico cardiologista para fins de verificar se possui algum impedido para a pratica, visto que a corrida em casos de pressão arterial alta, arritmia entre outros distúrbios/doenças não é recomendada, por isso de suma importância.</p>
+                <p>Você também pode buscar grupos de corrida da sua cidade, pois é muito mais divertido e motivador, correr em grupo ou em companhia de alguém do que sozinho quando se está começando.</p>
+                <p>Muitos tem buscado a corrida com objetivos diferente com emagrecer, aumentar a resistência e a qualidade de vida entre outros, e sem dúvidas um acompanhamento com um profissional habilitado em educação física, pode ajudar a chegar mais rápido ao seu objetivo e prevenir lesões.</p>
+
+                <h2>Dentre os benefícios da corrida podemos citar:</h2>
+                <ul>
+                    <li>Acelera o metabolismo</li>
+                    <li>Reduz o peso corporal</li>
+                    <li>Aumenta a capacidade cardiorrespiratória</li>
+                    <li>Melhora o nível de colesterol</li>
+                    <li>Previne contra doenças cardíacas</li>
+                    <li>Melhora no condicionamento físico</li>
+                    <li>Diminui o estresse e a ansiedade</li>
+                    <li>Melhora a qualidade do sono</li>
+                    <li>Aumento das funções cardiorrespiratórias</li>
+                    <li>Músculos tonificados</li>
+                    <li>Melhora a circulação sanguínea</li>
+                    <li>Melhora o humor</li>
+                    <li>Reduz os riscos de infarto</li>
+                    <li>Proporciona sensação de bem-estar</li>
+
+                </ul>
+
+
+                <p>O tempo e a frequência da corrida vai depender da capacidade de cada um, o importante é não exagerar, respeitando sempre as suas limitações, e se possível fazer acompanhamento com um profissional habilitado.</p>
+                <p>Calcular e acompanhar o seu pace, serve de motivação a cada crescimento, ajuda a planejar os treinos e traçar metas para suas próximas corridas.</p>
+                <p>É de suma importância para a pratica da corrida adquirir um tênis adequado e ter os músculos/ossos bem fortalecidos especialmente para evitar lesões, portanto a pratica de exercícios de fortalecimento é fundamental para o seu crescimento e, também é muito importante fazer alongamento e além disso beber muita água para manter o corpo hidratado e cuidar da alimentação.</p>
+                <p>Não se esqueça, é de grande importancia ter um acompanhamento proficional para a prática de qualquer esporte físico, até a corrida! Então não deixe de procurar um profissional para te acompanhar nessa jornada.</p>
 
             </div>
             <div className="ads">
@@ -212,7 +273,7 @@ export default function Home() {
                 <AdSense.Google
                     client='ca-pub-9656826245200965'
                     slot='5453334906'
-                    
+
                     style={{ width: 728, height: 90, display: 'inline-block' }}
                     format=''
                 />

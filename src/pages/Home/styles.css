@@ -163,12 +163,16 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.content-info p {
+.content-info p, li {
     font: 400 14px Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-align: justify;
     padding-bottom: 5px;
     padding-top: 5px;
+}
+.content-info ul {
+    margin-left: 40px;
+    padding-bottom: 20px;
 }
 .content-info h2 {
     font-size: 28px;
