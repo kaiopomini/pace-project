@@ -35,6 +35,23 @@ export default function Home() {
     const [pace, setPace] = useState('')
 
 
+    function checkErrors() {
+        let check = false
+        let erro = ''
+        if (typeof(kms) == 'string' || kms <= 0 ){
+            erro += 'Informe uma distância válida! '
+            check = true
+            
+        } 
+
+        if ((horas + minutos + segundos <= 0)) {
+            check = true
+            erro += 'Informe um tempo válido! '
+        }
+        
+        return({check, erro})
+    }
+
     function tempoParaSegundos(dados) {
         let horas = dados.horas * 60 * 60
         let minutos = dados.minutos * 60
@@ -96,7 +113,7 @@ export default function Home() {
         let paceEmSegundos = tempoParaSegundos(dados) / parseFloat(dados.kms)
         let tempo = segundosParaTempo(paceEmSegundos)
         let tempoComZeros = addZero(tempo)
-        console.log(tempoComZeros)
+     
         if (tempo.horas > 0) {
             return (`${tempoComZeros.horas}h:${tempoComZeros.minutos}m:${tempoComZeros.segundos}s por Kilometro`)
 
@@ -107,14 +124,27 @@ export default function Home() {
 
     function handleCalcPace(e) {
         e.preventDefault()
-
+        if (horas === '') setHoras(0)
+        if (minutos === '') setMinutos(0)
+        if (segundos === '') setSegundos(0)
         const dados = {
             kms, horas, minutos, segundos
         }
+        console.log(dados)
+        console.log(typeof(dados.kms))
+        console.log(typeof(dados.horas))
+        console.log(typeof(dados.minutos))
+        console.log(typeof(dados.segundos))
 
 
+        if (!checkErrors().check) {
+            setPace(calcPaceMinPerKm(dados))
+        } else {
+            setPace(checkErrors().erro)
+        }
+        
 
-        setPace(calcPaceMinPerKm(dados))
+        
 
     }
     return (
@@ -146,20 +176,19 @@ export default function Home() {
                         <form onSubmit={handleCalcPace}>
                             <h1>Calculadora de PACE (Min/KM)</h1>
                             <p>Distância Percorrida (KM)</p>
-                            <input type="number" precision={2} autoCorrect="on" placeholder="KMs" value={kms}
-                                onChange={e => setKms(e.target.value)} />
+                            <input type="number" precision={2} placeholder="KMs" value={kms}
+                                onChange={e => setKms(parseFloat(e.target.value))} />
 
                             <p>Informe o tempo:</p>
                             <div className="tempo">
-
-                                <input type="number" placeholder="HRs" min="0" value={horas}
-                                    onChange={e => setHoras(e.target.value)} />
+                                <input type="number" placeholder="H" min="0" value={horas}
+                                    onChange={e => setHoras(parseFloat(e.target.value))} />
 
                                 <input type="number" placeholder="Min" min="0" max="59" value={minutos}
-                                    onChange={e => setMinutos(e.target.value)} />
+                                    onChange={e => setMinutos(parseFloat(e.target.value))} />
 
-                                <input type="number" placeholder="Sec" min="0" max="59" value={segundos}
-                                    onChange={e => setSegundos(e.target.value)} />
+                                <input type="number" placeholder="S" min="0" max="59" value={segundos}
+                                    onChange={e => setSegundos(parseFloat(e.target.value))} />
 
                             </div>
 
