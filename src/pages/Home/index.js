@@ -19,19 +19,24 @@ export default function Home() {
         head.appendChild(script)
     }
 
-    const installLomade = () => {
-        const head = document.querySelector("head")
-        const meta = document.createElement("meta")
+    const installLomadeAds = () => {
+        const divAdBottom = document.querySelector("div.ads-bottom")
+        const adBottom = document.createElement("script")
+        adBottom.src = "//ad.lomadee.com/banners/script.js?sourceId=36485352&dimension=1&height=90&width=728&method=0"
+        adBottom.setAttribute("type", "text/javascript")
+        adBottom.setAttribute("language", "javascript")
 
-        meta.setAttribute("name", "lomadee-verification")
-        meta.setAttribute("content", "22870301")
 
-        head.appendChild(meta)
+        // <script src="//ad.lomadee.com/banners/script.js?sourceId=36485352&dimension=1&height=90&width=728&method=0" type="text/javascript" language="javascript"></script>
+        
+       
+
+        divAdBottom.appendChild(adBottom)
     }
 
     useEffect(() => {
         // installGoogleAds()
-        // installLomade()
+        installLomadeAds()
 
     }, []);
 
@@ -302,7 +307,7 @@ export default function Home() {
                 <p>Não se esqueça, é de grande importancia ter um acompanhamento proficional para a prática de qualquer esporte físico, até a corrida! Então não deixe de procurar um profissional para te acompanhar nessa jornada.</p>
 
             </div>
-            <div className="ads">
+            <div className="ads-bottom">
                 {/* <Ad path="/ca-pub-9656826245200965/5453334906" /> */}
                 {/* <AdSense.Google
                     client='ca-pub-9656826245200965'
