@@ -19,12 +19,21 @@ export default function Home() {
         head.appendChild(script)
     }
 
+    const installLomade = () => {
+        const head = document.querySelector("head")
+        const meta = document.createElement("meta")
+
+        meta.setAttribute("name", "lomadee-verification")
+        meta.setAttribute("content", "22870301")
+
+        head.appendChild(meta)
+    }
 
     useEffect(() => {
         installGoogleAds()
+        // installLomade()
 
     }, []);
-
 
 
 
@@ -86,7 +95,7 @@ export default function Home() {
     }
 
     function addZero(tempo) {
-        console.log(tempo)
+   
         let horas, minutos, segundos
         if (tempo.horas.toFixed(0) < 10) {
             horas = `0${tempo.horas.toFixed(0)}`
@@ -130,11 +139,7 @@ export default function Home() {
         const dados = {
             kms, horas, minutos, segundos
         }
-        console.log(dados)
-        console.log(typeof(dados.kms))
-        console.log(typeof(dados.horas))
-        console.log(typeof(dados.minutos))
-        console.log(typeof(dados.segundos))
+ 
 
 
         if (!checkErrors().check) {
@@ -206,13 +211,13 @@ export default function Home() {
 
 
                     {/* <Ad path="/ca-pub-9656826245200965/7704093721" /> */}
-                    <AdSense.Google
+                    {/* <AdSense.Google
                         client='ca-pub-9656826245200965'
                         slot='7704093721'
 
                         style={{ width: 300, height: 300, float: 'left' }}
                         format=''
-                    />
+                    /> */}
 
                     {/* <section className="form">
                         <form onSubmit={handleCalcPace}>
@@ -299,13 +304,13 @@ export default function Home() {
             </div>
             <div className="ads">
                 {/* <Ad path="/ca-pub-9656826245200965/5453334906" /> */}
-                <AdSense.Google
+                {/* <AdSense.Google
                     client='ca-pub-9656826245200965'
                     slot='5453334906'
 
                     style={{ width: 728, height: 90, display: 'inline-block' }}
                     format=''
-                />
+                /> */}
 
             </div>
         </div>
