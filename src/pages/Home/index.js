@@ -30,8 +30,8 @@ export default function Home() {
     }
 
     useEffect(() => {
-        installGoogleAds()
-        // installLomade()
+        // installGoogleAds()
+        installLomade()
 
     }, []);
 
