@@ -23,15 +23,26 @@ export default function Home() {
         const divAdBottom = document.querySelector("div.ads-bottom")
         const adBottom = document.createElement("script")
         adBottom.src = "//ad.lomadee.com/banners/script.js?sourceId=36485352&dimension=1&height=90&width=728&method=0"
+        adBottom.async = true
         adBottom.setAttribute("type", "text/javascript")
         adBottom.setAttribute("language", "javascript")
 
+        const divAdRside = document.querySelector("div.ads-rside")
+        const adRside = document.createElement("script")
+        adRside.src = //ad.lomadee.com/banners/script.js?sourceId=36485352&dimension=9&height=350&width=350&method=0"
+        adRside.async = true
+        adRside.setAttribute("type", "text/javascript")
+        adRside.setAttribute("language", "javascript")
+
 
         // <script src="//ad.lomadee.com/banners/script.js?sourceId=36485352&dimension=1&height=90&width=728&method=0" type="text/javascript" language="javascript"></script>
-        
-       
 
+       
+        // <script src="//ad.lomadee.com/banners/script.js?sourceId=36485352&dimension=9&height=350&width=350&method=0" type="text/javascript" language="javascript"></script>
+
+       
         divAdBottom.appendChild(adBottom)
+        divAdRside.appendChild(adRside)
     }
 
     useEffect(() => {
@@ -211,7 +222,7 @@ export default function Home() {
                     </section>
                 </div>
 
-                <div className="content">
+                <div className="ads-rside">
 
 
 

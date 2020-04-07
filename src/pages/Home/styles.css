@@ -194,3 +194,15 @@
     justify-content: center;
     
 }
+.home-container .ads-rside {
+    width: 100%;
+    min-width: 320px;
+    padding: 20px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
